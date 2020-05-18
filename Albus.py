@@ -1,3 +1,19 @@
+"""
+    Program Name: Albus.py,  Description: Voice Assistant
+    Copyright (C) 2020  Mainak Bhattacharjee
+
+    Albus.py is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Albus.py is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    
+    e-mail: mbhattacharjee432@gmail.com
+"""
 '''
 ##############################################################################
 
@@ -67,6 +83,7 @@ def command():
         return query # returns the query to the other methods who will call the command() method
 if __name__ == "__main__":  # this is the main method of this python program
 
+    print("Albus.py  Copyright (C) 2020  Mainak Bhattacharjee\nThis program comes with ABSOLUTELY NO WARRANTY.\nThis is free software, and you are welcome to redistribute it\nunder certain conditions.")
     t1 = threading.Thread(target=event_loop)
     t1.start()
     greet()

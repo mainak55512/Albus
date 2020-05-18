@@ -1,3 +1,3 @@
 # Albus
 
-Licenced under [MIT Licence](LICENCE)
+Licenced under [GPL Licence](COPYING)
