@@ -19,7 +19,10 @@
 '''
 ##############################################################################
 
-This ia an AI virtual assistant named A.L.B.U.S. A.L.B.U.S. stands for "Artificial Logistic Backend UNIX-based Subordinate". It can do several *nix based operations without any user interaction, the only thing needed id the voice command from the user.
+This ia an AI virtual assistant named A.L.B.U.S.
+A.L.B.U.S. stands for "Artificial Logistic Backend UNIX-based Subordinate".
+It can do several *nix based operations without any user interaction, 
+the only thing needed is the voice command from the user.
 
 ##############################################################################
 '''
