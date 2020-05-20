@@ -93,7 +93,7 @@ if __name__ == "__main__":  # this is the main method of this python program
     t1.start()
     greet()
     
-    # while True:
-    #     query = command().lower()
-    #     if 'who are you' in query:
-    #         speak("I am Albus, Albus stands for Artificial, logistic, Backend, Unix-based Subordinate")
+    while True:
+        query = command().lower()
+        if 'who are you' in query:
+            speak("I am Albus, Albus stands for Artificial, logistic, Backend, Unix-based Subordinate")
