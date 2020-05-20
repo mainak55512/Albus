@@ -53,7 +53,7 @@ def event_loop():
 def speak(audio):
     '''This will speak the text'''
 
-    os.system(f"espeak -v mb-en1 '{audio}' -s 150 -p 20")  # espeak module and mb-en1 needs to be installed. I haven't use the pyttsx3 module instead used the actual tts engine and ran it in a subshell to get the voice output. os.system() allows us to run shell commands from inside the python interpreter.
+    os.system(f"espeak -v mb-en1 '{audio}' -s 150 -p 30")  # espeak module and mb-en1 needs to be installed. I haven't use the pyttsx3 module instead used the actual tts engine and ran it in a subshell to get the voice output. os.system() allows us to run shell commands from inside the python interpreter.
 
 
 def greet():
@@ -93,7 +93,7 @@ if __name__ == "__main__":  # this is the main method of this python program
     t1.start()
     greet()
     
-    while True:
-        query = command().lower()
-        if 'who are you' in query:
-            speak("I am Albus, Albus stands for Artificial, logistic, Backend, Unix-based Subordinate")
+    # while True:
+    #     query = command().lower()
+    #     if 'who are you' in query:
+    #         speak("I am Albus, Albus stands for Artificial, logistic, Backend, Unix-based Subordinate")
