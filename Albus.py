@@ -31,6 +31,7 @@ import speech_recognition as sr
 import os
 import datetime
 import threading
+import wikipedia
 
 def event_loop():
     import pyglet
@@ -39,7 +40,8 @@ def event_loop():
     w = anim.width
     h = anim.height
 
-    win = pyglet.window.Window(width=w,height=h)
+    win = pyglet.window.Window(width=w, height=h)
+    win.set_caption('A.L.B.U.S.')
 
     r, g, b, alpha = 0.5, 0.5, 0.8, 0.5
     pyglet.gl.glClearColor(r, g, b, alpha)
@@ -53,7 +55,7 @@ def event_loop():
 def speak(audio):
     '''This will speak the text'''
 
-    os.system(f"espeak -v mb-en1 '{audio}' -s 150 -p 30")  # espeak module and mb-en1 needs to be installed. I haven't use the pyttsx3 module instead used the actual tts engine and ran it in a subshell to get the voice output. os.system() allows us to run shell commands from inside the python interpreter.
+    os.system(f"flite -voice ./cmu_us_rms.flitevox -t '{audio}'")  # flite module needs to be installed. I haven't use the pyttsx3 module instead used the actual tts engine and ran it in a subshell to get the voice output. os.system() allows us to run shell commands from inside the python interpreter.
 
 
 def greet():
@@ -83,7 +85,7 @@ def command():
             query = cmd.recognize_google(audio, language='en-in')
             print(f"Received_command: {query}\n")
         except Exception as e:
-            print("I can't get that...")
+            speak("I can't get that...")
             return "Sorry!"
         return query # returns the query to the other methods who will call the command() method
 if __name__ == "__main__":  # this is the main method of this python program
@@ -97,3 +99,8 @@ if __name__ == "__main__":  # this is the main method of this python program
         query = command().lower()
         if 'who are you' in query:
             speak("I am Albus, Albus stands for Artificial, logistic, Backend, Unix-based Subordinate")
+        elif 'wikipedia' in query:
+            speak("searching in wikipedia...")
+            query = query.replace("wikipedia", "")  #replaces 'wikipedia' keyword with blank
+            result = wikipedia.summary(query, sentences=4)
+            speak(f"According to wikipedia {result}")
