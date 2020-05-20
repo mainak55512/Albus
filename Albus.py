@@ -32,6 +32,7 @@ import os
 import datetime
 import threading
 import wikipedia
+import webbrowser
 
 def event_loop():
     import pyglet
@@ -104,6 +105,15 @@ if __name__ == "__main__":  # this is the main method of this python program
                 speak("searching in wikipedia...")
                 query = query.replace("wikipedia", "")  #replaces 'wikipedia' keyword with blank
                 result = wikipedia.summary(query, sentences=2)
+                print(result)
                 speak(f"According to wikipedia {result}")
             except Exception as e:
                 speak("Sorry sir, no results found")
+        elif 'open youtube' in query:
+            webbrowser.open("youtube.com")
+        elif 'open google' in query:
+            webbrowser.open("google.com")
+        elif 'open github' in query:
+            webbrowser.open("github.com")
+        elif 'open whatsapp' in query:
+            webbrowser.open("web.whatsapp.com")
