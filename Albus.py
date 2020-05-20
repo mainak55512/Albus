@@ -100,7 +100,10 @@ if __name__ == "__main__":  # this is the main method of this python program
         if 'who are you' in query:
             speak("I am Albus, Albus stands for Artificial, logistic, Backend, Unix-based Subordinate")
         elif 'wikipedia' in query:
-            speak("searching in wikipedia...")
-            query = query.replace("wikipedia", "")  #replaces 'wikipedia' keyword with blank
-            result = wikipedia.summary(query, sentences=4)
-            speak(f"According to wikipedia {result}")
+            try:
+                speak("searching in wikipedia...")
+                query = query.replace("wikipedia", "")  #replaces 'wikipedia' keyword with blank
+                result = wikipedia.summary(query, sentences=2)
+                speak(f"According to wikipedia {result}")
+            except Exception as e:
+                speak("Sorry sir, no results found")
