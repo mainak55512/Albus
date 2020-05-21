@@ -34,7 +34,7 @@ import threading
 import wikipedia
 import webbrowser
 
-wb = webbrowser.get('epiphany') # firefox or chrome can also be used if the machine has enough resources, in that case 'epiphany' should be replaced by 'firefox' or 'google-chrome' accordingly.
+wb = webbrowser.get('google-chrome') # firefox can also be used, in that case 'google-chrome' should be replaced by 'firefox'.
 
 def event_loop():
     import pyglet
@@ -94,8 +94,8 @@ def command():
 if __name__ == "__main__":  # this is the main method of this python program
 
     print("Albus.py  Copyright (C) 2020  Mainak Bhattacharjee\nThis program comes with ABSOLUTELY NO WARRANTY.\nThis is free software, and you are welcome to redistribute it\nunder certain conditions.\n\n")
-    # t1 = threading.Thread(target=event_loop)
-    # t1.start()
+    t1 = threading.Thread(target=event_loop)
+    t1.start()
     greet()
     
     while True:
