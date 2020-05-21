@@ -34,6 +34,8 @@ import threading
 import wikipedia
 import webbrowser
 
+wb = webbrowser.get('epiphany') # firefox or chrome can also be used if the machine has enough resources, in that case 'epiphany' should be replaced by 'firefox' or 'google-chrome' accordingly.
+
 def event_loop():
     import pyglet
     animation = pyglet.image.load_animation('2RNb.gif')
@@ -77,7 +79,7 @@ def command():
 
     cmd = sr.Recognizer()
     with sr.Microphone() as source:
-        print("Listning...")
+        print("\n\nListning...")
         cmd.pause_threshold = 1 # this makes the interpreter to hold for a second
         audio = cmd.listen(source)  # takes the master's voice commands
         
@@ -91,9 +93,9 @@ def command():
         return query # returns the query to the other methods who will call the command() method
 if __name__ == "__main__":  # this is the main method of this python program
 
-    print("Albus.py  Copyright (C) 2020  Mainak Bhattacharjee\nThis program comes with ABSOLUTELY NO WARRANTY.\nThis is free software, and you are welcome to redistribute it\nunder certain conditions.")
-    t1 = threading.Thread(target=event_loop)
-    t1.start()
+    print("Albus.py  Copyright (C) 2020  Mainak Bhattacharjee\nThis program comes with ABSOLUTELY NO WARRANTY.\nThis is free software, and you are welcome to redistribute it\nunder certain conditions.\n\n")
+    # t1 = threading.Thread(target=event_loop)
+    # t1.start()
     greet()
     
     while True:
@@ -110,10 +112,14 @@ if __name__ == "__main__":  # this is the main method of this python program
             except Exception as e:
                 speak("Sorry sir, no results found")
         elif 'open youtube' in query:
-            webbrowser.open("youtube.com")
+            speak("opening youtube")
+            wb.open('https://www.youtube.com')
         elif 'open google' in query:
-            webbrowser.open("google.com")
+            speak("opening google")
+            wb.open("https://google.com")
         elif 'open github' in query:
-            webbrowser.open("github.com")
+            speak("opening github")
+            wb.open("https://github.com")
         elif 'open whatsapp' in query:
-            webbrowser.open("web.whatsapp.com")
+            speak("opening whatsapp")
+            wb.open("web.whatsapp.com")
