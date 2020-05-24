@@ -17,6 +17,7 @@
 
 """
 '''
+
 ##############################################################################
 
 This ia an AI virtual assistant named A.L.B.U.S.
@@ -123,5 +124,9 @@ if __name__ == "__main__":  # this is the main method of this python program
         elif 'open whatsapp' in query:
             speak("opening whatsapp")
             wb.open("web.whatsapp.com")
+<<<<<<< HEAD
         elif 'quit' in query:
             quit()
+=======
+ # After all this time
+>>>>>>> 7761bbb1ec131f5405b7d44896b323908cd232ff
