@@ -34,7 +34,6 @@ the only thing needed is the voice command from the user.
 
 import speech_recognition as sr
 import os,signal
-from os import sys
 import datetime
 import threading
 import wikipedia
