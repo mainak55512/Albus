@@ -123,3 +123,5 @@ if __name__ == "__main__":  # this is the main method of this python program
         elif 'open whatsapp' in query:
             speak("opening whatsapp")
             wb.open("web.whatsapp.com")
+        elif 'quit' in query:
+            quit()
