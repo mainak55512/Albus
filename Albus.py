@@ -16,8 +16,7 @@
     e-mail: mbhattacharjee432@gmail.com
 
 """
-'''
-
+"""
 ##############################################################################
 
 This ia an AI virtual assistant named A.L.B.U.S.
@@ -26,10 +25,16 @@ It can do several *nix based operations without any user interaction,
 the only thing needed is the voice command from the user.
 
 ##############################################################################
-'''
+
+-After all this time!
+-Always...
+(!!Love you Wizarding World!!)
+
+"""
 
 import speech_recognition as sr
-import os
+import os,signal
+from os import sys
 import datetime
 import threading
 import wikipedia
@@ -43,6 +48,7 @@ def event_loop():
     anim = pyglet.sprite.Sprite(animation)
     w = anim.width
     h = anim.height
+    pid=os.getpid
 
     win = pyglet.window.Window(width=w, height=h)
     win.set_caption('A.L.B.U.S.')
@@ -98,6 +104,7 @@ if __name__ == "__main__":  # this is the main method of this python program
     t1 = threading.Thread(target=event_loop)
     t1.start()
     greet()
+    pid=os.getpid()
     
     while True:
         query = command().lower()
@@ -125,5 +132,4 @@ if __name__ == "__main__":  # this is the main method of this python program
             speak("opening whatsapp")
             wb.open("web.whatsapp.com")
         elif 'quit' in query:
-            quit()
- # After all this time
+            os.kill(pid,signal.SIGTERM)
