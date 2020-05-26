@@ -40,8 +40,6 @@ import threading
 import wikipedia
 import webbrowser
 
-wb = webbrowser.get('google-chrome') # firefox can also be used, in that case 'google-chrome' should be replaced by 'firefox'.
-
 def event_loop():
     import pyglet
     animation = pyglet.image.load_animation('2RNb.gif')
@@ -121,15 +119,18 @@ if __name__ == "__main__":  # this is the main method of this python program
                 speak("Sorry sir, no results found")
         elif 'open youtube' in query:
             speak("opening youtube")
-            wb.open('https://www.youtube.com')
+            webbrowser.open('https://www.youtube.com')
         elif 'open google' in query:
             speak("opening google")
-            wb.open("https://google.com")
+            webbrowser.open("https://google.com")
         elif 'open github' in query:
             speak("opening github")
-            wb.open("https://github.com")
+            webbrowser.open("https://github.com")
         elif 'open whatsapp' in query:
             speak("opening whatsapp")
-            wb.open("web.whatsapp.com")
+            webbrowser.open("https://web.whatsapp.com")
         elif 'quit' in query:
+            speak("killing all ongoing processes")
+            speak(", done, ")
+            speak(", quiting the environment.")
             os.kill(pid,signal.SIGTERM)
