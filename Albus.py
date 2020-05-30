@@ -31,13 +31,13 @@ the only thing needed is the voice command from the user.
 (!!Love you Wizarding World!!)
 
 """
-
-import speech_recognition as sr
 import os,signal
 import datetime
 import threading
 import wikipedia
 import webbrowser
+from I_O import *
+from SendMail import *
 
 def event_loop():
     import pyglet
@@ -59,10 +59,6 @@ def event_loop():
         anim.draw()
     pyglet.app.run()
 
-def speak(audio):
-    '''This will speak the text'''
-
-    os.system(f"flite -voice ./cmu_us_rms.flitevox -t '{audio}'")  # flite module needs to be installed. I haven't use the pyttsx3 module instead used the actual tts engine and ran it in a subshell to get the voice output. os.system() allows us to run shell commands from inside the python interpreter.
 
 
 def greet():
@@ -78,23 +74,6 @@ def greet():
     speak("I am,  Albus, your personal assistant. How can I help you?")
 
 
-def command():
-    '''This function takes the voice command from the master'''
-
-    cmd = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("\n\nListning...")
-        cmd.pause_threshold = 1 # this makes the interpreter to hold for a second
-        audio = cmd.listen(source)  # takes the master's voice commands
-        
-        try:                   # this ma give error, so try/except is used here.
-            print("Recognizing...")
-            query = cmd.recognize_google(audio, language='en-in')
-            print(f"Received_command: {query}\n")
-        except Exception as e:
-            speak("I can't get that...")
-            return "Sorry!"
-        return query # returns the query to the other methods who will call the command() method
 if __name__ == "__main__":  # this is the main method of this python program
 
     print("Albus.py  Copyright (C) 2020  Mainak Bhattacharjee\nThis program comes with ABSOLUTELY NO WARRANTY.\nThis is free software, and you are welcome to redistribute it\nunder certain conditions.\n\n")
@@ -128,6 +107,8 @@ if __name__ == "__main__":  # this is the main method of this python program
         elif 'open whatsapp' in query:
             speak("opening whatsapp")
             webbrowser.open("https://web.whatsapp.com")
+        elif 'email' in query:
+            e_mail()
         elif 'quit' in query:
             speak("killing all ongoing processes")
             speak(", done, ")
