@@ -15,8 +15,6 @@
     
     e-mail: mbhattacharjee432@gmail.com
 
-"""
-"""
 ##############################################################################
 
 This ia an AI virtual assistant named A.L.B.U.S.
