@@ -1,1 +1,1 @@
-your-mail@gmail.com:password
+your-mail@gmail.com:your-email's-password
